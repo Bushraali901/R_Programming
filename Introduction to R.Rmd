@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R Programming"
-author: "Sana Rasheed"
-date: "May 14, 2020"
+author: "Bushra ali"
+date: "aug 26, 2021"
 output: html_document
 ---
 
@@ -24,30 +24,40 @@ output: html_document
 
 ```{r }
 #### Start solution ####
-```
 
-
-```{r }
-
-```
-
-
-```{r }
+n<-c("b","u","s","h","r","a")
+n
 
 ```
 
+```{r}
 
-```{r }
-
+x<-"bushra"
+y<-c(n,x)
+y
 ```
-
-
-```{r }
 
 ```
 
 
 ```{r }
+s<-100:120
+s
+
+```
+
+
+```{r }
+x<-c(2,4,6,8,10,12,14,16,18)
+m<-matrix(x,nrow = 3,ncol = 3)
+m
+```
+
+
+```{r }
+#### Assign names to the variables. 
+dimnames(m)<-list(c("r1","r2","r3"),c("c1","c2","c3"))
+m
 #### End solution ####
 ```
 
@@ -60,7 +70,11 @@ output: html_document
 
 ```{r }
 #### Start solution ####
-```
+x<-"Employed"
+y<-"Unemployed"
+z<-"Self-Employed"
+emp_status<-factor(c(x,y,z,x,z,y,x,z,y,x,y,z))
+emp_status
 
 
 ```{r }
@@ -69,12 +83,12 @@ output: html_document
 
 
 ```{r }
-
+table(emp_status)
 ```
 
 
 ```{r }
-
+unclass(emp_status)
 ```
 
 
@@ -101,13 +115,8 @@ output: html_document
 
 
 ```{r }
-
-```
-
-
-```{r }
-
-```
+bank_customers<-data.frame(customerID=c("Alicia","Nancy","Fernando","Louis","Diane"),hasAccount=c(NA,TRUE,TRUE,TRUE,NA),totalBalance=c(NA,"USD 10,000","USD 100","USD 2,000",NA))
+bank_customers
 
 
 ```{r }
@@ -116,8 +125,19 @@ output: html_document
 
 
 ```{r }
-
+bank_customers<-data.frame(CustomerID="Alicia",hasAccount="NA",totalBalance="NA")
+bank_customers<-data.frame(CustomerID="Nancy",hasAccount="TRUE",totalBalance="USD 10,000")
+bank_customers<-data.frame(CustomerID="Fernando",hasAccount="TRUE",totalBalance="USD 100")
+bank_customers<-data.frame(CustomerID="Louis",hasAccount="TRUE",totalBalance="USD 2,000")
+bank_customers<-data.frame(CustomerID="Diane",hasAccount="NA",totalBalance="NA")
 ```
+
+
+```{r }
+nrow()
+nrow(bank_customers)
+ncol(bank_customers)
+names(bank_customers)
 
 
 ```{r }
@@ -139,11 +159,55 @@ output: html_document
 
 ```{r }
 #### Start solution ####
+p = 0:100
+  for(i in p){
+    if (i == 0){
+      next
+    } else if (i == 1){
+      next
+    } else if(i == 2){
+      i = 2
+    } else if (i %% 2 == 0){
+      next
+    } else if (i == 3){
+      i = 3
+    } else if (i %% 3 == 0){
+      next
+    } else if (i == 5){
+      i = 5
+    } else if (i %% 5 == 0){
+      next
+    }
+    print(i)
+  }
+
+
+  
+
 ```
 
 
 ```{r }
-
+  seq_number <- c(1:100)
+  var <- 1;
+  Counter_N_Var <- 1;
+  while(Counter_N_Var <= 10) {
+    i <- seq_number[var]
+    var <- var + 1
+    if(i == 1) next;
+    prime_number <- TRUE
+    x <- seq(2, i-1)
+    for (a in x) {
+      if (i%%a == 0){
+        prime_number <- FALSE
+        break
+      }
+    }
+    if(prime_number) {
+      Counter_N_Var <- Counter_N_Var + 1
+      print(seq_number[var-1])
+    }
+  }
 ```
 
 
@@ -178,7 +242,9 @@ output: html_document
 
 ```{r }
 #### Start solution ####
-```
+
+mat_1<-matrix(1:9,3,3)
+mat_1
 
 
 ```{r }
@@ -187,22 +253,23 @@ output: html_document
 
 
 ```{r }
+mat_1[,3]
+```
+
+
+```{r }
+mat_1[2,3]
 
 ```
 
 
 ```{r }
-
+mat_1[1,2]
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
+mat_1[1,]
 ```
 
 
@@ -223,14 +290,30 @@ output: html_document
 
 ```{r }
 #### Start solution ####
+gcd<-function(a,b){
+  if(a>b){
+      mn=a
+    }
+  else{
+      mn=b
+    }
+    
+  for(i in 1:mn){
+      if((a%%i==0) &&( b%%i==0)){
+      answer=i
+        }
+    }
+  return(answer)
+  }
+gcd(24,12)
+answer<-gcd(54,67)
+answer
+
 ```
 
 
-```{r }
 
 ```
-
-
 ```{r }
 
 ```
@@ -269,7 +352,16 @@ output: html_document
 
 
 ```{r }
+allConditionsMeet <- function(a,b){
 
+if((a>b)&&(a%%b==0)){
+ return(TRUE)
+}
+else{
+return(FALSE)
+}
+}
+allConditionsMeet(6,8)
 ```
 
 
@@ -312,20 +404,32 @@ output: html_document
 
 ```{r }
 #### Start solution ####
+
+matrix_2=matrix(1:6,3,2)
+matrix_2
+```
+
+
+```{r}
+matrix_1=matrix(4:9,2,3)
+matrix_1
+
+
+
+```
 ```
 
 
 ```{r }
 
-```
-
-
-```{r }
+matrix_1*matrix_2
 
 ```
 
 
 ```{r }
+
+matrix_1%*%matrix_2
 
 ```
 
@@ -356,36 +460,45 @@ output: html_document
 
 ```{r }
 #### Start solution ####
+curr_date=Sys.Date()
+curr_date
 ```
 
 
 ```{r }
+curr_time=Sys.time()
 
+
+curr_time
 ```
 
 
 ```{r }
-
+p<-as.POSIXlt(curr_time)
+p
 ```
 
 
 ```{r }
-
+names(unclass(p))
 ```
 
 
 ```{r }
-
+D <- as.POSIXlt(curr_date)
+names(unclass(D))
 ```
 
 
 ```{r }
-
-```
-
+p$sec
+p$wday
+p$year
+p$mon
+p$hour
 
 ```{r }
-#### End solution ####
+#### Endmon solution ####
 ```
 
 ### Question 2
@@ -400,14 +513,8 @@ output: html_document
 
 
 ```{r }
-
-```
-
-
-```{r }
-
-```
-
+x<-Sys.time()
+x
 
 ```{r }
 
@@ -415,7 +522,18 @@ output: html_document
 
 
 ```{r }
+y<-as.POSIXlt(x,tz="GMT")
+y
+```
 
+
+```{r }
+
+x<-as.POSIXct("2021-08-23 09:48:45")
+y<-as.POSIXct("2021-08-23 11:58:45",tz="GMT")
+
+y-x
+y
 ```
 
 
@@ -444,27 +562,33 @@ output: html_document
 
 
 ```{r }
-
+numbers<-100:150
+numbers
 ```
 
 
 ```{r }
-
+lapply(numbers,mean)
 ```
 
 
 ```{r }
-
+sapply(numbers, mean)
 ```
 
 
 ```{r }
-
+y<-matrix(rnorm(50),10,20)
+y
+apply(y,1,mean)
 ```
 
 
 ```{r }
+t<-c(101:150)
+f<-gl(4,12.5)
 
+tapply(t,f,sd)
 ```
 
 
@@ -484,27 +608,28 @@ output: html_document
 
 
 ```{r }
-
+m<-matrix(10:24,4,4)
+m
 ```
 
 
 ```{r }
-
+colMeans(m)
 ```
 
 
 ```{r }
-
+rowMeans(m)
 ```
 
 
 ```{r }
-
+print(colMeans(m))
 ```
 
 
 ```{r }
-
+apply(m,1,mean)
 ```
 
 
@@ -528,41 +653,51 @@ The dataset is loaded and the variable Orange contains the respective dataset.
 
 ```{r }
 library(datasets)
+
+head(Orange)
+
 ```
 
 
 ```{r }
-head(Orange)
+
+
 ```
 
 
 ```{r }
 #### Start solution ####
+
+split_data<-split(Orange,Orange$circumference)
+head(split_data)
 ```
 
 
 ```{r }
-
+print(split_data$`30`)
 ```
 
 
 ```{r }
-
+print(split_data$`75`)
 ```
 
 
 ```{r }
-
+x<-split_data$`30`
+x
+y<-split_data$`214`
+y
 ```
 
 
 ```{r }
-
+mean(x$age)
 ```
 
 
 ```{r }
-
+mean(y$age)
 ```
 
 
